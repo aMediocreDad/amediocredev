@@ -1,0 +1,21 @@
+{
+  "name": "amediocredev",
+  "scripts": {
+    "start": "imba -w server.imba",
+    "build": "imba build server.imba"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "imba": "^2.0.0-alpha.146"
+  },
+  "repository": "amediocredad/amediocredev",
+  "description": "Landing page for aMediocreDev",
+  "version": "0.1.0",
+  "homepage": "https://github.com/amediocredad/amediocredev",
+  "author": "Filip Ambrosius (https://github.com/amediocredad)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.6.2"
+  }
+}
