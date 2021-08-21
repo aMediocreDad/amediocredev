@@ -39,7 +39,7 @@ tag app
 		<section[d:flex fld:column j:center a:center ta:center]>
 			<h1[us:none cursor:pointer c@hover:var(--acc1)] @click=changeTheme(getRandomNum())&&clearInterval(interval) title="Click me to change themes"> "👋🏼 {<br>} Hei, I am Filip!"
 			<p[font-style:italic]> "Husband, father, gamer, software developer, economist, entrepreneur, and graduate student."
-			<code> "git checkout my-work at {<a[c@hover:var(--text)] href="https://github.com/aMediocreDad" target="_blank"> "Github"}"
+			<code> "git checkout my-work at {<a[c@hover:var(--text)] href="https://github.com/aMediocreDad" target="_blank" rel="noopener"> "Github"}"
 			<p> <em> "or"
 			<a[p:1rem border: 1px solid var(--acc1) bg@hover:var(--acc1) c@hover:var(--text)] href="mailto:hello@amediocre.dev"> "Say Hello!"
 			<div[pos:absolute b:0 max-height:500px w:100%]><svg[c:var(--acc2)] src="./waves.svg">

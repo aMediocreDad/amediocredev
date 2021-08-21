@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2021-08-21
+
+### Fixed
+
+- Fixed smaller Lighthouse issues
+
 ## [1.0.0] - 2021-08-21
 
 ### Added
