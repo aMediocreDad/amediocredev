@@ -1,0 +1,17 @@
+section {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* CSS specific to iOS devices */
+@supports (-webkit-touch-callout: none) {
+  @media screen and (orientation: landscape) {
+    section {
+      margin-top: 0;
+    }
+  }
+}
