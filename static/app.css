@@ -1,0 +1,52 @@
+@import url("./bespoke-sans.css");
+@import url("./nonicons.css");
+
+:root {
+	font-family: "Bespoke Sans", sans-serif;
+
+	/* Default theme colors */
+	--bg: #fffefb;
+	--bg2: #6ca787;
+	--text: #393259;
+	--acc1: #eb3f90;
+	--acc2: #6ca787;
+
+	/* Size definitions */
+	--s: 0.5rem;
+	--m: 1rem;
+	--l: 2rem;
+	--xl: 3rem;
+	--xxl: 6rem;
+
+	--icon-size: 1.7rem;
+	--button-width: 9rem;
+}
+
+html {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	background-color: var(--bg2);
+	color: var(--text);
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body > div.bg-wrapper {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	z-index: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text);
+}
