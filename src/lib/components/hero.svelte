@@ -20,7 +20,7 @@
 	section {
 		min-height: 65vh;
 		margin-inline: var(--s);
-		margin-block-end: min(30vh, 400px);
+		margin-block-end: clamp(180px, 30vh, 400px);
 		display: flex;
 		flex-wrap: wrap-reverse;
 		justify-content: center;

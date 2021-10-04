@@ -28,5 +28,7 @@
 	svg {
 		width: 100%;
 		max-height: 300px;
+
+		margin-block-start: -2px;
 	}
 </style>

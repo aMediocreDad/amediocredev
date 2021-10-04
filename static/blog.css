@@ -4,8 +4,23 @@
 
 .body {
 	font-size: 1.1rem;
+	line-height: 1.8rem;
 	width: clamp(35ch, 70%, 75ch);
 	margin-inline: auto;
+}
+
+.body h2,
+.body h3,
+.body h4 {
+	margin-block-start: var(--l);
+}
+
+.body a {
+	color: var(--acc1);
+}
+
+.body a:hover {
+	text-decoration: underline;
 }
 
 .body pre {
@@ -29,6 +44,14 @@
 	font-family: "Fira Code", monospace;
 	font-size: 1rem;
 	font-weight: 400;
+}
+
+.body p > code {
+	display: inline-block;
+	background: var(--bg2);
+	padding: 0 10px;
+	border-radius: var(--s);
+	line-height: 1.4rem;
 }
 
 .body blockquote {

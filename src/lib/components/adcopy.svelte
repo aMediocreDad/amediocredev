@@ -3,18 +3,25 @@
 </script>
 
 <section>
-	<AnimatedText text="JAMStack" --delay="0ms" />
-	<AnimatedText text="FullStack" --delay="250ms" />
-	<AnimatedText text="Your Stack" --delay="500ms" />
+	<AnimatedText text="JAMStack" />
+	<AnimatedText text="FullStack" />
+	<AnimatedText text="Your Stack" />
 </section>
 
-<style>
+<style lang="scss">
+	@import "../sass/media-queries";
 	section {
 		width: 100%;
 		height: 45vh;
 
 		display: grid;
 		place-content: center;
-		gap: var(--xxl);
+		gap: var(--xl);
+	}
+
+	@include tablet-min {
+		section {
+			gap: var(--xxl);
+		}
 	}
 </style>

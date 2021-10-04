@@ -72,25 +72,25 @@
 </article>
 
 <style lang="scss">
-	:global(body) {
-		background: var(--bg);
-	}
+	@import "../../lib/sass/media-queries.scss";
 	article {
 		margin-inline: auto;
 		display: flex;
 		flex-direction: column;
 		gap: var(--m);
 		margin-block-end: var(--xl);
+		width: 100%;
 	}
 
 	h1 {
-		font-size: var(--xl);
+		font-size: clamp(2rem, 5vw, var(--xl));
+		margin-inline: var(--s);
 		text-align: center;
 	}
 
 	img {
 		display: block;
-		width: min(80%, 70rem);
+		width: min(80%, 60rem);
 		margin-inline: auto;
 		border-radius: var(--m);
 	}
@@ -98,12 +98,13 @@
 	ul {
 		list-style: none;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
-		gap: var(--l);
+		gap: var(--m);
 		margin-inline: auto;
 
 		&.details {
-			font-size: 1.1rem;
+			font-size: 1rem;
 			font-weight: bold;
 			opacity: 0.8;
 
@@ -126,6 +127,13 @@
 				font-size: var(--icon-size);
 				line-height: 1;
 			}
+		}
+	}
+
+	@include tablet-min {
+		ul.details {
+			font-size: 1.1rem;
+			gap: var(--l);
 		}
 	}
 </style>
