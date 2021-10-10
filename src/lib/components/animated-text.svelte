@@ -7,7 +7,7 @@
 	export let text;
 
 	let position = spring(0, { stiffness: 0.1, damping: 0.25 });
-	let opacity = tweened(0, {
+	let opacity = tweened(1, {
 		duration: 200,
 		easing: cubicInOut
 	});

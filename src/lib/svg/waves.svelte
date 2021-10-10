@@ -298,7 +298,7 @@
 		position: absolute;
 		top: 0;
 		background: var(--bg);
-		height: max(600px, 100vh);
+		height: max(600px, 90vh);
 		width: 100%;
 		z-index: -1;
 	}

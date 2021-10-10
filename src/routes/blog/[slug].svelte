@@ -1,47 +1,29 @@
 <script context="module" lang="ts">
 	import type { Load } from "@sveltejs/kit";
-	export const load: Load = async ({
-		fetch,
-		page: {
-			params: { slug }
-		}
-	}) => {
-		const res = await fetch(`https://dev.to/api/articles/amediocredev/${slug}`);
+	import "../../styles/blog.css";
+	import "../../styles/hljs.css";
+	export const load: Load = async ({ fetch, page }) => {
+		const res = await fetch(`/blog/${page.params?.slug}.json`);
 		if (res.ok) {
-			const post = await res.json();
+			const { post } = await res.json();
 			return {
-				props: {
-					post
-				}
+				props: { post }
 			};
 		}
-		throw new Error("I Failed to get the post you are looking for.");
 	};
+
+	export const hydrate = false;
+	export const prerender = true;
 </script>
 
 <script lang="ts">
 	import type { BlogPost } from "$lib/types";
-	import hljs from "highlight.js";
-	import marked from "marked";
-	import insane from "insane";
+
 	import Tag from "$lib/components/tag.svelte";
 
 	export let post: BlogPost;
 
-	const { title, published_at, cover_image, tags, url, reading_time_minutes, body_markdown } = post;
-	const published = new Date(published_at);
-
-	const markedOptions = {
-		highlight: (str: string) => hljs.highlightAuto(str).value,
-		langPrefix: "hljs language-",
-		smartLists: true,
-		smartypants: true
-	};
-	const insaneOptions = {
-		allowedAttributes: { span: ["class"], code: ["class"], h2: ["id"], img: ["src", "alt"] }
-	};
-
-	const cleanHTML = insane(marked(body_markdown, markedOptions), insaneOptions);
+	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } = post;
 </script>
 
 <svelte:head>
@@ -53,9 +35,7 @@
 	<h1>{title}</h1>
 	<ul class="details">
 		<li>
-			<i class="icon-calendar-16" /><time datetime={published.toISOString()}
-				>{published.toLocaleDateString()}</time
-			>
+			<i class="icon-calendar-16" /><time datetime={publishedIso}>{published}</time>
 		</li>
 		<li><i class="icon-clock-16" />{reading_time_minutes} minute read</li>
 		<li><i class="icon-comment-16" /><a href={url} rel="_noopener" target="_blank">@dev.to</a></li>
@@ -72,7 +52,8 @@
 </article>
 
 <style lang="scss">
-	@import "../../lib/sass/media-queries.scss";
+	@import "../../styles/media-queries.scss";
+
 	article {
 		margin-inline: auto;
 		display: flex;
@@ -104,9 +85,9 @@
 		margin-inline: auto;
 
 		&.details {
-			font-size: 1rem;
 			font-weight: bold;
 			opacity: 0.8;
+			margin-inline: var(--s);
 
 			li {
 				display: inline-flex;

@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import LinkIcon from "$lib/components/link-icon.svelte";
 	import Ln from "$lib/icons/ln.svelte";

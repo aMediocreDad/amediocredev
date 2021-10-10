@@ -1,15 +1,8 @@
 <script>
-	import CardGrid from "$lib/layouts/card-grid.svelte";
-	import { onMount } from "svelte";
+	import CardGrid from "/src/layouts/card-grid.svelte";
 	import LinkButton from "./link-button.svelte";
 
-	let posts;
-	onMount(async () => {
-		const res = await fetch("https://dev.to/api/articles?username=amediocredev&per_page=4");
-		if (res.ok) {
-			posts = await res.json();
-		}
-	});
+	export let posts;
 </script>
 
 {#if posts}
@@ -22,11 +15,24 @@
 		</svelte:fragment>
 	</CardGrid>
 {:else}
-	<p>Finding recent posts...</p>
+	<p class="failed">Failed to get blog posts from <a href="https://dev.to/aMediocreDad/posts">dev.to</a>...</p>
 {/if}
 
 <style lang="scss">
 	h3 {
 		font-size: 1.8rem;
+	}
+
+	p.failed {
+		font-size: 1.5rem;
+		margin-inline: auto;
+	}
+
+	a {
+		color: var(--acc1);
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 </style>

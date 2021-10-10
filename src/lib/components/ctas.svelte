@@ -9,7 +9,7 @@
 </div>
 
 <style lang="scss">
-	@import "../sass/media-queries";
+	@import "../../styles/media-queries";
 
 	.ctas {
 		margin: var(--m) 0;

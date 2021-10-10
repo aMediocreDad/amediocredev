@@ -1,23 +1,14 @@
 <script>
-	import Footer from "$lib/layouts/footer.svelte";
-	import Header from "$lib/layouts/header.svelte";
-	import Waves from "$lib/svg/waves.svelte";
+	import "../styles/app.css";
+	import "../styles/bespoke-sans.css";
+	import "../styles/nonicons.css";
+
+	import Footer from "/src/layouts/footer.svelte";
+	import Header from "/src/layouts/header.svelte";
 </script>
 
-<div class="bg-wrapper">
-	<Waves />
+<Header />
 
-	<Header />
+<slot />
 
-	<slot />
-
-	<Footer />
-</div>
-
-<style>
-	@import "/static/app.css";
-
-	div.bg-wrapper {
-		background: var(--bg2);
-	}
-</style>
+<Footer />

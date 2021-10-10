@@ -9,7 +9,7 @@
 </section>
 
 <style lang="scss">
-	@import "../sass/media-queries";
+	@import "../../styles/media-queries";
 	section {
 		width: 100%;
 		height: 45vh;

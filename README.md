@@ -1,8 +1,8 @@
 # a Mediocre Dev
 
-This is the landing page for amediocre.dev home of what will be developed into my personal portfolio website.
+This is my Portfolio amediocre.dev home of stuff I decide to build on the interwebs.
 
-Having played around with **[Imba](https://imba.io/)** for a while I have come to realize it does not suit my needs yet. And as I am fleshing out my website I have landed on using **[SvelteKit](https://kit.svelte.dev/)** instead
+This portfolio is made using **[SvelteKit](https://kit.svelte.dev/)**. An amazing frontend framework with filebased routing, quick API endpoints and easily deployed on any platform. This site is hosted on [Netlify](https://app.netlify.com).
 
 If you are a fellow developer looking for inspiration, please don't hesitate to yank some of the code, or contacting me if you have questions.
 
@@ -10,7 +10,7 @@ If you are a fellow developer looking for inspiration, please don't hesitate to 
 
 Svelte has been around for a few years, and it has steadily gained popularity as it has grown more feature rich and stabilized. With SvelteKit having launched this year, and soon to reach version 1.0. The time for jumping onto the proverbial _"bandwagon"_ has never been more ripe.
 
-SvelteKit has, unlike any other JS framework so far, amazed me with its DX, and I really hope to be using this framework a lot going forward.
+SvelteKit has, unlike any other JS framework so far, amazed me with its developer experience, and I really hope to be using this framework a lot going forward.
 
 ## Scripts
 

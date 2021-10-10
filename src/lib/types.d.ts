@@ -1,11 +1,12 @@
 export interface BlogPost {
 	title: string;
-	published_at: string;
+	published: Date;
+	publishedIso: string;
 	cover_image: string;
 	tags: string[];
 	url: string;
 	reading_time_minutes: string;
-	body_markdown: string;
+	cleanHTML: string;
 }
 
 export interface Project {
@@ -14,6 +15,7 @@ export interface Project {
 	highlight: boolean;
 	tags: string[];
 	coverImage: {
+		url: string;
 		alt: string;
 	};
 	summary: string;

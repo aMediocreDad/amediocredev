@@ -5,7 +5,8 @@
 	export let text: string;
 </script>
 
-<a {href} class:hero rel={isExternal ? "noopener" : ""} target={isExternal ? "_blank" : ""}>{text}</a>
+<a sveltekit:prefetch {href} class:hero rel={isExternal ? "noopener" : ""} target={isExternal ? "_blank" : ""}>{text}</a
+>
 
 <style lang="scss">
 	a {

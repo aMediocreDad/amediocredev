@@ -1,7 +1,6 @@
 <script lang="ts">
 	//@ts-nocheck Type 'unknown' is not assignable to type 'string'.ts(2322)
-	import CardGrid from "$lib/layouts/card-grid.svelte";
-	import { urlFor } from "$lib/sanityClient";
+	import CardGrid from "/src/layouts/card-grid.svelte";
 	import type { Project } from "$lib/types";
 	import LinkIcon from "./link-icon.svelte";
 	import Tag from "./tag.svelte";
@@ -16,7 +15,7 @@
 </script>
 
 <CardGrid title="Projects" list={projects}>
-	<img slot="cover" let:card src={urlFor(card.coverImage).width(400).height(200).url()} alt={card.coverImage.alt} />
+	<img slot="cover" let:card src={card.coverImage.url} alt={card.coverImage.alt} />
 	<svelte:fragment slot="card" let:card>
 		<div class="grid-wrap">
 			<h3>{card.title}</h3>
@@ -37,7 +36,7 @@
 </CardGrid>
 
 <style lang="scss">
-	@import "../sass/media-queries";
+	@import "../../styles/media-queries";
 
 	.grid-wrap {
 		display: grid;

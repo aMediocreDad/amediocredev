@@ -11,6 +11,6 @@ export const client = sanityClient({
 
 const builder = imageUrlBuilder(client);
 
-export const urlFor = (source: string): ImageUrlBuilder => {
+export const urlFor = (source: Record<string, string>): ImageUrlBuilder => {
 	return builder.image(source);
 };

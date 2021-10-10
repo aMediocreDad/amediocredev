@@ -26,7 +26,7 @@
 </section>
 
 <style lang="scss">
-	@import "../sass/media-queries";
+	@import "../styles/media-queries";
 
 	h2 {
 		text-align: center;

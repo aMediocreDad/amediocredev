@@ -15,7 +15,7 @@
 </section>
 
 <style lang="scss">
-	@import "../sass/media-queries";
+	@import "../../styles/media-queries";
 
 	section {
 		min-height: 65vh;

@@ -1,6 +1,3 @@
-@import url("./bespoke-sans.css");
-@import url("./nonicons.css");
-
 :root {
 	font-family: "Bespoke Sans", sans-serif;
 
@@ -25,8 +22,6 @@
 html {
 	scroll-behavior: smooth;
 	box-sizing: border-box;
-	background-color: var(--bg2);
-	color: var(--text);
 }
 
 *,
@@ -37,13 +32,13 @@ html {
 	padding: 0;
 }
 
-body > div.bg-wrapper {
+body {
+	background-color: var(--bg);
+	color: var(--text);
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
 	justify-content: space-between;
-	position: relative;
-	z-index: 0;
 }
 
 a {

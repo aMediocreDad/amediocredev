@@ -1,18 +1,14 @@
-/* CSS specific to iOS devices */
-@supports (-webkit-touch-callout: none) {
-	section {
-		min-height: -webkit-fill-available;
+$tablet-min: 730px;
+$desktop-min: 1008px;
+
+@mixin tablet-min {
+	@media (min-width: $tablet-min) {
+		@content;
 	}
-	svg {
-		bottom: 0;
-		margin-bottom: -7px;
-	}
-	@media screen and (orientation: landscape) and (max-height: 600px) {
-		section {
-			margin-top: 0;
-		}
-		svg {
-			display: none;
-		}
+}
+
+@mixin desktop-min {
+	@media (min-width: $desktop-min) {
+		@content;
 	}
 }
