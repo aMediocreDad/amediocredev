@@ -2,8 +2,8 @@
 	"name": "amediocredev",
 	"private": true,
 	"repository": "amediocredad/amediocredev",
-	"description": "Landing page for aMediocreDev",
-	"version": "1.1.0-alpha",
+	"description": "aMediocreDev Portfolio Website",
+	"version": "2.1.0",
 	"homepage": "https://github.com/amediocredad/amediocredev",
 	"author": "Filip Ambrosius (https://github.com/amediocredad)",
 	"license": "MIT",
@@ -18,7 +18,6 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
-		"@fullhuman/postcss-purgecss": "^4.0.3",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.32",
 		"@sveltejs/adapter-node": "^1.0.0-next.46",
 		"@sveltejs/adapter-static": "^1.0.0-next.18",
@@ -36,7 +35,6 @@
 		"postcss-load-config": "^3.1.0",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
-		"purgecss-from-svelte": "^2.0.2",
 		"sass": "^1.39.2",
 		"svelte": "^3.43.1",
 		"svelte-check": "^2.0.0",
@@ -53,10 +51,5 @@
 		"insane": "^2.6.2",
 		"marked": "^3.0.4",
 		"svelte-inview": "^2.0.1"
-	},
-	"browserslist": [
-		"defaults",
-		"not IE 11",
-		"maintained node versions"
-	]
+	}
 }

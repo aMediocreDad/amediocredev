@@ -1,5 +1,5 @@
 <script>
-	import CardGrid from "/src/layouts/card-grid.svelte";
+	import CardGrid from "$lib/layouts/card-grid.svelte";
 	import LinkButton from "./link-button.svelte";
 
 	export let posts;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	//@ts-nocheck Type 'unknown' is not assignable to type 'string'.ts(2322)
-	import CardGrid from "/src/layouts/card-grid.svelte";
+	import CardGrid from "$lib/layouts/card-grid.svelte";
 	import type { Project } from "$lib/types";
 	import LinkIcon from "./link-icon.svelte";
 	import Tag from "./tag.svelte";

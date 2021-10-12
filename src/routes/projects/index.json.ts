@@ -7,7 +7,7 @@ export const get: RequestHandler = async () => {
 	try {
 		const res = await client.fetch(query);
 		const projects = res.reduce((obj: Project[], project: Project) => {
-			project.coverImage.url = urlFor(project.coverImage).width(400).height(200).url();
+			project.coverImage.url = urlFor(project.coverImage).width(800).height(400).url();
 			return [...obj, project];
 		}, []);
 		return {

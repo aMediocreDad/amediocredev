@@ -12,7 +12,7 @@
 	{#if list}
 		<ul>
 			{#each list as card}
-				<li class={card.highlight ? "highlight" : ""}>
+				<li class:highlight={card.highlight}>
 					<article>
 						<div class="cover"><slot name="cover" {card} /></div>
 						<div class="content"><slot name="card" {card} /></div>
@@ -26,7 +26,7 @@
 </section>
 
 <style lang="scss">
-	@import "../styles/media-queries";
+	@import "../../styles/media-queries";
 
 	h2 {
 		text-align: center;
@@ -37,18 +37,25 @@
 		margin-inline: auto;
 		margin-block: var(--l) var(--xl);
 
-		width: clamp(200px, 80%, 70rem);
+		width: clamp(300px, 80%, 60rem);
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(32ch, 1fr));
 		gap: var(--xl);
+		justify-items: center;
 
 		color: var(--bg);
 
 		li {
 			max-width: 65ch;
+
+			&.highlight {
+				grid-row-start: 1;
+			}
 		}
 	}
 	article {
+		display: grid;
+		grid-template-rows: 15rem 1fr;
 		border-radius: var(--m);
 		box-shadow: 1px 2px 5px var(--acc2);
 		overflow: hidden;
@@ -61,6 +68,7 @@
 			:global(img) {
 				object-fit: cover;
 				width: 100%;
+				height: 100%;
 				display: block;
 			}
 		}
@@ -82,11 +90,22 @@
 		&:focus-within {
 			transform: scale(1.01);
 		}
+	}
 
-		@include tablet-min {
-			.content {
-				padding: var(--m) var(--l) var(--l);
-			}
+	@include tablet-min {
+		.content {
+			padding: var(--m) var(--l) var(--l);
+		}
+
+		ul {
+			grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+		}
+	}
+
+	@include desktop-min {
+		li.highlight {
+			max-width: 60rem;
+			grid-column-end: span 2;
 		}
 	}
 </style>

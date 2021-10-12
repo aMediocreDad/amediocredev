@@ -3,12 +3,27 @@
 	import "../styles/bespoke-sans.css";
 	import "../styles/nonicons.css";
 
-	import Footer from "/src/layouts/footer.svelte";
-	import Header from "/src/layouts/header.svelte";
+	import Footer from "$lib/layouts/footer.svelte";
+	import Header from "$lib/layouts/header.svelte";
+	import ScrollTop from "$lib/components/scroll-top.svelte";
+	import { browser } from "$app/env";
+
+	let showScrollToTop;
+	let root;
+	if (browser) {
+		root = document.documentElement;
+	}
+	let farEnough = () => (showScrollToTop = browser && root.scrollTop / (root.scrollHeight - root.clientHeight) > 0.1);
 </script>
+
+<svelte:window on:scroll={farEnough} />
 
 <Header />
 
 <slot />
+
+{#if showScrollToTop}
+	<ScrollTop />
+{/if}
 
 <Footer />
