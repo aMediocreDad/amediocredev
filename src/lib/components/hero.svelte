@@ -6,7 +6,7 @@
 <section>
 	<div class="wrapper">
 		<h1>
-			Hero or Dev,<br />
+			Dad or Dev,<br />
 			I am Mediocre<span>✨</span>
 		</h1>
 		<CTAS />
