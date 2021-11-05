@@ -36,12 +36,12 @@
 		gap: var(--s);
 	}
 	h1 {
-		font-size: clamp(2.3rem, 7vw, 6rem);
+		font-size: clamp(2.3rem, 1rem + 7vw, 6rem);
 		line-height: 1.1;
 		margin: 0;
 
 		span {
-			font-size: clamp(1.5rem, 5vw, 2rem);
+			font-size: clamp(1.5rem, 1rem + 5vw, 2rem);
 			display: block;
 			filter: hue-rotate(173deg);
 		}
