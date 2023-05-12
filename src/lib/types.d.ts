@@ -1,6 +1,6 @@
 export interface BlogPost {
 	title: string;
-	published: Date;
+	published: string;
 	publishedIso: string;
 	cover_image: string;
 	tags: string[];
