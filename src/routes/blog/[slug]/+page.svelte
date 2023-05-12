@@ -1,11 +1,10 @@
 <script lang="ts">
+	/* eslint svelte/no-at-html-tags: 0 */
 	import Tag from "$lib/components/tag.svelte";
 
 	export let data;
 
-	let post = data.post!;
-
-	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } = post;
+	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } = data.post || {};
 </script>
 
 <svelte:head>
@@ -23,11 +22,13 @@
 		<li><i class="icon-comment-16" /><a href={url} rel="_noopener" target="_blank">@dev.to</a></li>
 	</ul>
 
-	<ul class="tags">
-		{#each tags as tag}
-			<Tag text={tag} --text="var(--acc1)" />
-		{/each}
-	</ul>
+	{#if tags}
+		<ul class="tags">
+			{#each tags as tag}
+				<Tag text={tag} --text="var(--acc1)" />
+			{/each}
+		</ul>
+	{/if}
 	<div class="body">
 		{@html cleanHTML}
 	</div>

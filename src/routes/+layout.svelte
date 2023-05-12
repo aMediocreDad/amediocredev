@@ -8,7 +8,7 @@
 	import ScrollTop from "$lib/components/scroll-top.svelte";
 	import { browser } from "$app/environment";
 
-	let showScrollToTop: boolean = false;
+	let showScrollToTop = false;
 	let root: HTMLElement;
 	if (browser) {
 		root = document.documentElement;

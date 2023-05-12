@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
+	import type { BlogPost } from "$lib/types";
 	import CardGrid from "$lib/layouts/card-grid.svelte";
 	import LinkButton from "./link-button.svelte";
 
-	export let posts;
+	export let posts: BlogPost[] = [];
 </script>
 
 {#if posts}

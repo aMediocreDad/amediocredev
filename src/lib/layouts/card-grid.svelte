@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let list: Record<string, any>[];
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	export let list: Record<string, any>[] = [];
 	export let title: string;
 </script>
 
@@ -12,7 +13,8 @@
 	{#if list}
 		<ul>
 			{#each list as card}
-				<li class:highlight={card.highlight}>
+				{@const highlight = ("highlight" in card && card.highlight) || false}
+				<li class:highlight>
 					<article>
 						<div class="cover"><slot name="cover" {card} /></div>
 						<div class="content"><slot name="card" {card} /></div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let href: string;
-	export let isExternal: boolean = false;
-	export let hero: boolean = false;
+	export let isExternal = false;
+	export let hero = false;
 	export let text: string;
 </script>
 
