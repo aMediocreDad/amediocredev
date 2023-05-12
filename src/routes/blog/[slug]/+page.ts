@@ -7,4 +7,3 @@ export const load: PageLoad = async ({ data }) => {
 };
 
 export const csr = false;
-export const prerender = true;
