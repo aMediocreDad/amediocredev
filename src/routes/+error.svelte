@@ -1,25 +1,19 @@
-<script context="module">
-	export async function load({ error, status }) {
-		return {
-			props: { error, status }
-		};
-	}
+<script>
+	import { page } from "$app/stores";
 </script>
 
-<script>
-	export let error, status;
-</script>
+<h1>{$page.status} : {$page.error?.message}</h1>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>{$page.status}</title>
 </svelte:head>
 
 <div>
-	<h2>Hi there...</h2>
+	<strong>Hi there...</strong>
 
-	<h1>{status}</h1>
+	<h1>{$page.status}</h1>
 
-	<p>{error.message}</p>
+	<p>{$page.error?.message}</p>
 </div>
 
 <style>
@@ -31,7 +25,7 @@
 		justify-content: center;
 		text-align: center;
 	}
-	h2 {
+	strong {
 		align-self: flex-end;
 	}
 

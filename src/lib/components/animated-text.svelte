@@ -1,10 +1,9 @@
-<script>
-	// @ts-nocheck
+<script lang="ts">
 	import { inview } from "svelte-inview";
 	import { spring, tweened } from "svelte/motion";
 	import { cubicInOut } from "svelte/easing";
 
-	export let text;
+	export let text: string;
 
 	let position = spring(0, { stiffness: 0.1, damping: 0.25 });
 	let opacity = tweened(1, {
@@ -19,9 +18,9 @@
 		rootMargin: "-50px"
 	};
 
-	const handleChange = ({ detail }) => {
-		scrollDirection = detail.scrollDirection.vertical;
-		isInView = detail.inView;
+	const handleChange = (ev: CustomEvent) => {
+		scrollDirection = ev.detail.scrollDirection.vertical;
+		isInView = ev.detail.inView;
 		if (scrollDirection === "down") position.set(200);
 		if (scrollDirection === "up") position.set(-200);
 		if (isInView) {
@@ -31,7 +30,11 @@
 	};
 </script>
 
-<div use:inview={options} on:change={handleChange} style="transform:translateY({$position}px);opacity:{$opacity};">
+<div
+	use:inview={options}
+	on:inview_change={handleChange}
+	style="transform:translateY({$position}px);opacity:{$opacity};"
+>
 	{text}
 </div>
 

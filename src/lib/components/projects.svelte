@@ -1,5 +1,4 @@
 <script lang="ts">
-	//@ts-nocheck Type 'unknown' is not assignable to type 'string'.ts(2322)
 	import CardGrid from "$lib/layouts/card-grid.svelte";
 	import type { Project } from "$lib/types";
 	import LinkIcon from "./link-icon.svelte";
@@ -12,6 +11,14 @@
 		repository: "icon-mark-github-16",
 		website: "icon-browser-16"
 	};
+
+	const getLinks = (links: Project["links"]): [string, string][] => {
+		return Object.entries(links).reverse();
+	};
+
+	const getIcon = (key: string) => {
+		return iconLookup[key as "other" | "repository" | "website"] || "";
+	};
 </script>
 
 <CardGrid title="Projects" list={projects}>
@@ -20,9 +27,8 @@
 		<div class="grid-wrap">
 			<h3>{card.title}</h3>
 			<ul class="links">
-				{#each Object.entries(card.links).reverse() as [key, link]}
-					<!--@ts-expect-error Type 'unknown' is not assignable to type 'string'.ts(2322)-->
-					<li><LinkIcon href={link} title={key}><i class={iconLookup[key] || ""} /></LinkIcon></li>
+				{#each getLinks(card.links) as [key, link]}
+					<li><LinkIcon href={link} title={key}><i class={getIcon(key)} /></LinkIcon></li>
 				{/each}
 			</ul>
 		</div>

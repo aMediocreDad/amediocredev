@@ -1,27 +1,9 @@
-<script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-	import "../../styles/blog.css";
-	import "../../styles/hljs.css";
-	export const load: Load = async ({ fetch, page }) => {
-		const res = await fetch(`/blog/${page.params?.slug}.json`);
-		if (res.ok) {
-			const { post } = await res.json();
-			return {
-				props: { post }
-			};
-		}
-	};
-
-	export const hydrate = false;
-	export const prerender = true;
-</script>
-
 <script lang="ts">
-	import type { BlogPost } from "$lib/types";
-
 	import Tag from "$lib/components/tag.svelte";
 
-	export let post: BlogPost;
+	export let data;
+
+	let post = data.post!;
 
 	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } = post;
 </script>
@@ -52,7 +34,7 @@
 </article>
 
 <style lang="scss">
-	@import "../../styles/media-queries.scss";
+	@import "../../../styles/media-queries.scss";
 
 	article {
 		margin-inline: auto;

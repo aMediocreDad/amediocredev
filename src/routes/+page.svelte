@@ -1,19 +1,3 @@
-<script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-
-	export const load: Load = async ({ fetch }) => {
-		const projects = await fetch("projects.json");
-		const posts = await fetch("https://dev.to/api/articles?username=amediocredev&per_page=4");
-
-		return {
-			props: {
-				projects: projects.ok ? await projects.json() : null,
-				posts: posts.ok ? await posts.json() : null
-			}
-		};
-	};
-</script>
-
 <script lang="ts">
 	import Waves from "$lib/svg/waves.svelte";
 	import Hero from "$lib/components/hero.svelte";
@@ -21,10 +5,10 @@
 	import Adcopy from "$lib/components/adcopy.svelte";
 	import Stalactites from "$lib/svg/stalactites.svelte";
 	import RecentPosts from "$lib/components/recent-posts.svelte";
-	import type { Project, BlogPost } from "$lib/types";
 
-	export let projects: Project[];
-	export let posts: BlogPost[];
+	export let data;
+
+	let { projects, posts } = data;
 </script>
 
 <svelte:head>

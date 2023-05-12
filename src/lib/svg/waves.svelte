@@ -296,7 +296,7 @@
 <style lang="scss">
 	.wrapper {
 		position: absolute;
-		top: 0;
+		top: -1px;
 		background: var(--bg);
 		height: max(600px, 90vh);
 		width: 100%;
