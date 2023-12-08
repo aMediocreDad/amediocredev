@@ -1,6 +1,7 @@
 @font-face {
 	font-family: "nonicons";
-	src: url("/fonts/nonicons.ttf?c6caf59a0c0ca07a716f6f447947efa1") format("truetype"),
+	src:
+		url("/fonts/nonicons.ttf?c6caf59a0c0ca07a716f6f447947efa1") format("truetype"),
 		url("/fonts/nonicons.woff?c6caf59a0c0ca07a716f6f447947efa1") format("woff");
 }
 
