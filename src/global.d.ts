@@ -1,6 +1,3 @@
-/// <reference types="@sveltejs/kit" />
-/// <reference types="insane" />
-
 interface ImportMeta {
 	env: {
 		VITE_SANITY_PROJECT_ID: string;
@@ -12,3 +9,19 @@ declare module "insane" {
 
 	export default sanitize;
 }
+
+declare global {
+	namespace App {
+		interface Platform {
+			env: {
+				COUNTER: DurableObjectNamespace;
+			};
+			context: {
+				waitUntil(promise: Promise<unknown>): void;
+			};
+			caches: CacheStorage & { default: Cache };
+		}
+	}
+}
+
+export {};

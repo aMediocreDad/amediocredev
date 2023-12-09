@@ -2,18 +2,16 @@
 	import { page } from "$app/stores";
 </script>
 
-<h1>{$page.status} : {$page.error?.message}</h1>
-
 <svelte:head>
-	<title>{$page.status}</title>
+	<title>{$page.status}: {$page.error?.message}</title>
 </svelte:head>
 
 <div>
-	<strong>Hi there...</strong>
+	<h1>Oh hi there!</h1>
 
-	<h1>{$page.status}</h1>
-
-	<p>{$page.error?.message}</p>
+	<p><strong>Looks like we got a bad case of a {$page.status} error.</strong></p>
+	<pre><code>Message: {$page.error?.message}</code></pre>
+	<pre><code>Status: {$page.status}</code></pre>
 </div>
 
 <style>

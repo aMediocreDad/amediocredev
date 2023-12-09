@@ -8,7 +8,7 @@
 	li {
 		display: inline-block;
 		border: 2px solid var(--text);
-		width: 6rem;
+		width: 7rem;
 		height: 2.2rem;
 		font-size: 0.8rem;
 		color: var(--text);

@@ -25,6 +25,7 @@
 
 .body pre {
 	background: #011627;
+	margin: var(--l) var(--s);
 	padding: var(--xl) var(--l);
 	white-space: pre-wrap;
 	word-wrap: break-word;
@@ -56,6 +57,7 @@
 }
 
 .body blockquote {
+	margin-block: var(--l);
 	padding: var(--s) var(--m);
 	border-left: var(--s) solid var(--acc1);
 	border-right: var(--s) solid var(--acc1);
@@ -68,6 +70,6 @@
 .body img {
 	width: 80%;
 	display: block;
-	margin: var(--s) auto;
+	margin: var(--l) auto;
 	border-radius: var(--s);
 }

@@ -1,10 +1,14 @@
 <script lang="ts">
 	/* eslint svelte/no-at-html-tags: 0 */
+	import "../../../styles/blog.css";
+	import "../../../styles/hljs.css";
 	import Tag from "$lib/components/tag.svelte";
+	import type { BlogPost } from "$lib/types.js";
 
 	export let data;
 
-	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } = data.post || {};
+	const { title, published, publishedIso, cover_image, tags, url, reading_time_minutes, cleanHTML } =
+		data.post || ({} as BlogPost);
 </script>
 
 <svelte:head>
@@ -36,7 +40,6 @@
 
 <style lang="scss">
 	@import "../../../styles/media-queries.scss";
-
 	article {
 		margin-inline: auto;
 		display: flex;

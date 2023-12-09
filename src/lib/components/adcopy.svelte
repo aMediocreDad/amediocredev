@@ -3,9 +3,9 @@
 </script>
 
 <section>
-	<AnimatedText text="JAMStack" />
-	<AnimatedText text="FullStack" />
-	<AnimatedText text="Your Stack" />
+	<AnimatedText text="I" />
+	<AnimatedText text="Love" />
+	<AnimatedText text="To Code" />
 </section>
 
 <style lang="scss">

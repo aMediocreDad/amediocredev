@@ -1,8 +1,9 @@
 import { error } from "@sveltejs/kit";
 
 import insane from "insane";
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
-import { marked } from "marked";
 import type { BlogPost } from "$lib/types.js";
 
 export async function load({ params: { slug } }) {
@@ -13,18 +14,26 @@ export async function load({ params: { slug } }) {
 	const { title, published_at, cover_image, tags, url, reading_time_minutes, body_markdown } = await res.json();
 
 	const markedOptions = {
-		highlight: (str: string) => hljs.highlightAuto(str).value,
-		langPrefix: "hljs language-",
 		smartLists: true,
-		smartypants: true
+		smartypants: true,
+		async: true
 	};
 
 	const renderer = {
-		image(href: string, _title: string, text: string) {
+		image(href: string, _title: string | null, text: string) {
 			return `<img src="${href}" alt="${text}" loading="lazy" />`;
 		}
 	};
 
+	const marked = new Marked(
+		markedHighlight({
+			langPrefix: "hljs language-",
+			highlight(code, lang) {
+				const language = hljs.getLanguage(lang) ? lang : "plaintext";
+				return hljs.highlight(code, { language }).value;
+			}
+		})
+	).setOptions(markedOptions);
 	marked.use({ renderer });
 
 	const insaneOptions = {
@@ -36,7 +45,7 @@ export async function load({ params: { slug } }) {
 		}
 	};
 
-	const cleanHTML = insane(marked(body_markdown, markedOptions), insaneOptions);
+	const cleanHTML = insane(await marked.parse(body_markdown), insaneOptions);
 	const publishDate = new Date(published_at);
 	const publishedIso = publishDate.toISOString();
 	const published = publishDate.toLocaleDateString();
