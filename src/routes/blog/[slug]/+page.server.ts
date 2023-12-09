@@ -6,12 +6,15 @@ import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import type { BlogPost } from "$lib/types.js";
 
-export async function load({ params: { slug } }) {
-	const res = await fetch(`https://dev.to/api/articles/amediocredev/${slug}`);
-
-	if (!res.ok) return error(404, "Blog post not found");
-
-	const { title, published_at, cover_image, tags, url, reading_time_minutes, body_markdown } = await res.json();
+export async function load({ fetch, params: { slug } }) {
+	const insaneOptions = {
+		allowedAttributes: {
+			span: ["class"],
+			code: ["class"],
+			h2: ["id"],
+			img: ["src", "alt", "height", "width", "loading"]
+		}
+	};
 
 	const markedOptions = {
 		smartLists: true,
@@ -34,24 +37,28 @@ export async function load({ params: { slug } }) {
 			}
 		})
 	).setOptions(markedOptions);
+
 	marked.use({ renderer });
 
-	const insaneOptions = {
-		allowedAttributes: {
-			span: ["class"],
-			code: ["class"],
-			h2: ["id"],
-			img: ["src", "alt", "height", "width", "loading"]
+	const res = await fetch(`https://dev.to/api/articles/amediocredev/${slug}`, {
+		headers: {
+			// Dev.to will return a 403 if the user agent is not a browser
+			"User-Agent":
+				"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 		}
-	};
+	});
 
-	const cleanHTML = insane(await marked.parse(body_markdown), insaneOptions);
-	const publishDate = new Date(published_at);
-	const publishedIso = publishDate.toISOString();
-	const published = publishDate.toLocaleDateString();
+	if (!res.ok) throw error(res.status, res.statusText);
 
-	return {
-		post: {
+	try {
+		const { title, published_at, cover_image, tags, url, reading_time_minutes, body_markdown } = await res.json();
+
+		const cleanHTML = insane(await marked.parse(body_markdown), insaneOptions);
+		const publishDate = new Date(published_at);
+		const publishedIso = publishDate.toISOString();
+		const published = publishDate.toLocaleDateString();
+
+		const post: BlogPost = {
 			title,
 			published,
 			publishedIso,
@@ -60,6 +67,13 @@ export async function load({ params: { slug } }) {
 			url,
 			reading_time_minutes,
 			cleanHTML
-		} as BlogPost
-	};
+		};
+
+		return {
+			post
+		};
+	} catch (e) {
+		console.error(e);
+		throw error(500, "Failed to create the blog post for you.");
+	}
 }

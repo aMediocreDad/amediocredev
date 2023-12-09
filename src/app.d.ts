@@ -4,12 +4,6 @@ interface ImportMeta {
 	};
 }
 
-declare module "insane" {
-	declare function sanitize(html: string, options: insane.Options): string;
-
-	export default sanitize;
-}
-
 declare global {
 	namespace App {
 		interface Platform {
