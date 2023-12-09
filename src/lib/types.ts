@@ -7,9 +7,6 @@ export interface BlogPost {
 	url: string;
 	reading_time_minutes: string;
 	cleanHTML: string;
-	social_image: string;
-	description: string;
-	slug: string;
 }
 
 export interface Project {
